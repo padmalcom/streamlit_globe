@@ -127,3 +127,20 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+##### React
+streamlit_globe/frontend/.idea/
+streamlit_globe/frontend/.vscode/
+streamlit_globe/frontend/node_modules/
+streamlit_globe/frontend/build
+streamlit_globe/frontend/.DS_Store
+streamlit_globe/frontend/*.tgz
+streamlit_globe/frontend/my-app*
+streamlit_globe/frontend/template/src/__tests__/__snapshots__/
+streamlit_globe/frontend/lerna-debug.log
+streamlit_globe/frontend/npm-debug.log*
+streamlit_globe/frontend/yarn-debug.log*
+streamlit_globe/frontend/yarn-error.log*
+streamlit_globe/frontend//.changelog
+streamlit_globe/frontend/.npm/
