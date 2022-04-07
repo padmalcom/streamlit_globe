@@ -11,31 +11,48 @@ import world_night from './assets/earth-night.jpg'
 class StreamlitGlobe extends StreamlitComponentBase {
 	 
   public render = (): ReactNode => {
-	const globeData = this.props.args["globeData"];
+	  
+	// parameters
+	const pointsData = this.props.args["pointsData"];
+	const labelsData = this.props.args["labelsData"];
 	const daytime = this.props.args["daytime"];
-	if (typeof(globeData) === "object") {
-		const parsedGlobeData = JSON.parse(JSON.stringify(globeData));
-		
-		let daytime_img = world_day;
-		if (daytime === "night") {
-			daytime_img = world_night;
-		}
-		console.log(daytime_img);
-		return (
-			<div id="globe">
-				<Globe
-					pointsData={parsedGlobeData}
-					pointAltitude="size"
-					pointColor="color"
-					width={600}
-					height={600}
-					globeImageUrl={daytime_img}
-					backgroundImageUrl={require('./assets/night-sky.png')}
-				/>
-			</div>
-		);
+	const width = this.props.args["width"];
+	const height = this.props.args["height"];
+	
+	if ((pointsData === undefined) && (labelsData === undefined)) {
+		return(<span>Please provide either 'pointsData' or 'labelsData' as argument.</span>);
 	}
-	return(<span>Error reading globe data. Data should be an array, but is '{typeof(globeData)}'.</span>);
+	
+	let parsedPointsData: Array<object> = [];
+	if (pointsData !== undefined) {
+		parsedPointsData = JSON.parse(JSON.stringify(pointsData));
+	}
+	
+	let parsedLabelsData: Array<object> = [];
+	if (labelsData !== undefined) {
+		parsedLabelsData = JSON.parse(JSON.stringify(labelsData));
+	}
+
+	let daytime_img = world_day;
+	if (daytime === "night") {
+		daytime_img = world_night;
+	}
+	console.log(daytime_img);
+	return (
+		<div id="globe">
+			<Globe
+				pointsData={parsedPointsData}
+				labelsData={parsedLabelsData}
+				pointAltitude="size"
+				pointColor="color"
+				width={width}
+				height={height}
+				globeImageUrl={daytime_img}
+				backgroundImageUrl={require('./assets/night-sky.png')}
+			/>
+		</div>
+	);
+	
   }
 }
 

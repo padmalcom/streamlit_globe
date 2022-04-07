@@ -11,11 +11,13 @@ else:
     build_dir = os.path.join(parent_dir, "frontend/build")
     _component_func = components.declare_component("streamlit_globe", path=build_dir)
 
-def streamlit_globe(globeData, daytime='day', key=None):
-    _component_func(globeData=globeData, daytime=daytime, key=key, default=0)
+def streamlit_globe(pointsData, labelsData, daytime='day', width=600, height=600, key=None):
+    _component_func(pointsData=pointsData, labelsData=labelsData, daytime=daytime, width=width, height=height, key=key, default=0)
 
 if not _RELEASE:
     import streamlit as st
 
     st.subheader("Globe")
-    streamlit_globe(globeData=[{'lat': 49.19788311472706, 'lng': 8.114625722364316, 'size': 0.3, 'color': 'red'}], daytime='day')
+    pointsData=[{'lat': 49.19788311472706, 'lng': 8.114625722364316, 'size': 0.3, 'color': 'red'}]
+    labelsData=[{'lat': 49.19788311472706, 'lng': 8.114625722364316, 'size': 0.3, 'color': 'red', 'text': 'Landau'}]
+    streamlit_globe(pointsData=pointsData, labelsData=labelsData, daytime='day', width=800, height=600)
