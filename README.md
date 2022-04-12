@@ -9,6 +9,8 @@ Streamlit Globe is a wrapper around globe.gl and provides some simple data visua
 - daytime parameter accepts 'day' or 'night'
 - You have to provide a width and a height, this is not determined automatically by streamlit.
 
+<a href="https://www.buymeacoffee.com/padmalcom" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
 ## Example usage
 ```import streamlit as st 
 from streamlit_globe import streamlit_globe
